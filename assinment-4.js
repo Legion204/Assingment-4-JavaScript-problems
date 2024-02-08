@@ -1,5 +1,3 @@
-//problem-1
-
 function calculateMoney(ticketSell) {
   const totalTicketPrice = ticketSell * 120;
   const guardSalary = 500;
@@ -12,8 +10,6 @@ function calculateMoney(ticketSell) {
     return totalEarn;
   }
 }
-
-//problem-2
 
 function checkName(name) {
   if (typeof name !== "string") {
@@ -47,11 +43,74 @@ function checkName(name) {
   }
 }
 
-//problem-3
+function deleteInvalids(array) {
+  if (Array.isArray(array)) {
+    let numArray = [];
+    let newArray = [];
+    for (num of array) {
+      if (typeof num === "number") {
+        numArray.push(num);
+      }
+    }
 
-function deleteInvalids(){
-
+    for (num of numArray) {
+      if (!isNaN(num)) {
+        newArray.push(num);
+      }
+    }
+    return newArray;
+  } else {
+    const error = "Input is not an array";
+    return error;
+  }
 }
 
-const result = deleteInvalids('badamo');
-console.log(result);
+function password(obj) {
+  const keysINObj = Object.keys(obj);
+  const Date = obj.birthYear.toString();
+  if (typeof obj === "object" && keysINObj.length === 3 && Date.length === 4) {
+    const webName = obj.siteName[0].toUpperCase() + obj.siteName.slice(1);
+    const userName = obj.name;
+    const birthDate = obj.birthYear;
+    const password = `${webName}#${userName}@${birthDate}`;
+    return password;
+  } else {
+    const error = "invalid";
+    return error;
+  }
+}
+
+function monthlySavings(array, livingCost) {
+  if (Array.isArray(array) && typeof livingCost === "number") {
+    let oldArray = [];
+    let newArray = [];
+    for (num of array) {
+      if (num >= 3000) {
+        const tax = (num * 20) / 100;
+        const afterTax = num - tax;
+        newArray.push(afterTax);
+      }
+    }
+
+    for (num of array) {
+      if (num < 3000) {
+        oldArray.push(num);
+      }
+    }
+    const joinArray = oldArray.concat(newArray);
+    let sum = 0;
+    for (num of joinArray) {
+      sum = sum + num;
+    }
+    const totalSavings = sum - livingCost;
+    if (totalSavings >= 0) {
+      return totalSavings;
+    } else {
+      const x = "earn more";
+      return x;
+    }
+  } else {
+    const error = "invalid input";
+    return error;
+  }
+}

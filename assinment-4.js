@@ -1,3 +1,6 @@
+//JavaScript Assignment
+
+
 function calculateMoney(ticketSell) {
   const totalTicketPrice = ticketSell * 120;
   const guardSalary = 500;
